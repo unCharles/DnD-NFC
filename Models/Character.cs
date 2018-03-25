@@ -76,7 +76,6 @@ namespace DnD_NFC
    
         public static Character Find(int characterId)   
         {
-            Console.WriteLine(characterId.ToString());
             var db = new LiteDatabase(@Properties.Settings.Default.LiteDbPath);
             var col = db.GetCollection<Character>("characters");
             return col.FindById(characterId);
@@ -100,7 +99,6 @@ namespace DnD_NFC
         {
             var db = new LiteDatabase(@Properties.Settings.Default.LiteDbPath);
             var col = db.GetCollection<Character>("characters");
-            Console.WriteLine(this.Name);
             col.Update(this);
         }
 

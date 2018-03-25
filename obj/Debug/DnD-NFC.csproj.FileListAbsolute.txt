@@ -29,3 +29,4 @@ C:\Users\chaz\source\repos\DnD-NFC\obj\Debug\DnD-NFC.csproj.CoreCompileInputs.ca
 C:\Users\chaz\source\repos\DnD-NFC\obj\Debug\DnD-NFC.csproj.CopyComplete
 C:\Users\chaz\source\repos\DnD-NFC\obj\Debug\DnD-NFC.exe
 C:\Users\chaz\source\repos\DnD-NFC\obj\Debug\DnD-NFC.pdb
+C:\Users\chaz\source\repos\DnD-NFC\obj\Debug\DnD_NFC.DisplayWindow.resources

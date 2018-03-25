@@ -36,6 +36,7 @@ namespace DnD_NFC
             this.editCharacterButton = new System.Windows.Forms.Button();
             this.newCharacterButton = new System.Windows.Forms.Button();
             this.mapsTab = new System.Windows.Forms.TabPage();
+            this.monitorSelector = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -52,6 +53,7 @@ namespace DnD_NFC
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.monitorSelector);
             this.splitContainer1.Panel1.Controls.Add(this.nfcToggle);
             this.splitContainer1.Panel1.Controls.Add(this.settingsLabel);
             this.splitContainer1.Panel1.Controls.Add(this.displayToggle);
@@ -66,7 +68,7 @@ namespace DnD_NFC
             // nfcToggle
             // 
             this.nfcToggle.AutoSize = true;
-            this.nfcToggle.Location = new System.Drawing.Point(18, 71);
+            this.nfcToggle.Location = new System.Drawing.Point(18, 104);
             this.nfcToggle.Name = "nfcToggle";
             this.nfcToggle.Size = new System.Drawing.Size(83, 17);
             this.nfcToggle.TabIndex = 2;
@@ -188,6 +190,14 @@ namespace DnD_NFC
             this.mapsTab.Text = "Maps";
             this.mapsTab.UseVisualStyleBackColor = true;
             // 
+            // monitorSelector
+            // 
+            this.monitorSelector.FormattingEnabled = true;
+            this.monitorSelector.Location = new System.Drawing.Point(18, 70);
+            this.monitorSelector.Name = "monitorSelector";
+            this.monitorSelector.Size = new System.Drawing.Size(121, 21);
+            this.monitorSelector.TabIndex = 3;
+            // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +231,7 @@ namespace DnD_NFC
         private System.Windows.Forms.Label settingsLabel;
         private System.Windows.Forms.CheckBox nfcToggle;
         private System.Windows.Forms.ListBox characterListBox;
+        private System.Windows.Forms.ComboBox monitorSelector;
     }
 }
 
