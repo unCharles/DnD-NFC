@@ -92,6 +92,7 @@
             this.spellsBox = new System.Windows.Forms.GroupBox();
             this.spellsInput = new System.Windows.Forms.TextBox();
             this.levelInput = new System.Windows.Forms.NumericUpDown();
+            this.armorClassLabel = new System.Windows.Forms.Label();
             this.imageUploader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chaInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wisInput)).BeginInit();
@@ -285,34 +286,31 @@
             // 
             this.chaLabel.AutoSize = true;
             this.chaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chaLabel.Location = new System.Drawing.Point(6, 189);
+            this.chaLabel.Location = new System.Drawing.Point(6, 188);
             this.chaLabel.Name = "chaLabel";
             this.chaLabel.Size = new System.Drawing.Size(43, 20);
             this.chaLabel.TabIndex = 14;
             this.chaLabel.Text = "CHA";
-            this.chaLabel.Visible = false;
             // 
             // wisLabel
             // 
             this.wisLabel.AutoSize = true;
             this.wisLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wisLabel.Location = new System.Drawing.Point(9, 157);
+            this.wisLabel.Location = new System.Drawing.Point(9, 156);
             this.wisLabel.Name = "wisLabel";
             this.wisLabel.Size = new System.Drawing.Size(40, 20);
             this.wisLabel.TabIndex = 12;
             this.wisLabel.Text = "WIS";
-            this.wisLabel.Visible = false;
             // 
             // intLabel
             // 
             this.intLabel.AutoSize = true;
             this.intLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.intLabel.Location = new System.Drawing.Point(15, 125);
+            this.intLabel.Location = new System.Drawing.Point(15, 124);
             this.intLabel.Name = "intLabel";
             this.intLabel.Size = new System.Drawing.Size(34, 20);
             this.intLabel.TabIndex = 10;
             this.intLabel.Text = "INT";
-            this.intLabel.Visible = false;
             // 
             // conLabel
             // 
@@ -323,7 +321,6 @@
             this.conLabel.Size = new System.Drawing.Size(43, 20);
             this.conLabel.TabIndex = 8;
             this.conLabel.Text = "CON";
-            this.conLabel.Visible = false;
             // 
             // dexLabel
             // 
@@ -347,6 +344,7 @@
             // 
             // defenseBox
             // 
+            this.defenseBox.Controls.Add(this.armorClassLabel);
             this.defenseBox.Controls.Add(this.speedInput);
             this.defenseBox.Controls.Add(this.initiativeInput);
             this.defenseBox.Controls.Add(this.acInput);
@@ -755,6 +753,16 @@
             this.levelInput.Size = new System.Drawing.Size(57, 26);
             this.levelInput.TabIndex = 24;
             // 
+            // armorClassLabel
+            // 
+            this.armorClassLabel.AutoSize = true;
+            this.armorClassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.armorClassLabel.Location = new System.Drawing.Point(2, 50);
+            this.armorClassLabel.Name = "armorClassLabel";
+            this.armorClassLabel.Size = new System.Drawing.Size(95, 20);
+            this.armorClassLabel.TabIndex = 24;
+            this.armorClassLabel.Text = "Armor Class";
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -880,5 +888,6 @@
         private System.Windows.Forms.NumericUpDown acInput;
         private System.Windows.Forms.NumericUpDown hpInput;
         private System.Windows.Forms.NumericUpDown levelInput;
+        private System.Windows.Forms.Label armorClassLabel;
     }
 }

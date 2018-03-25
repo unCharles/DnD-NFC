@@ -20,6 +20,41 @@ namespace DnD_NFC
 
         public int Level { get; set; }
 
+        public int HitPoints { get; set; }
+        public int ArmorClass { get; set; }
+        public int Speed { get; set; }
+        public int Initiative { get; set;  }
+
+        public int Strength { get; set; }
+        public int Dexterity { get; set; }
+        public int Constitution { get; set; }
+        public int Intelligence { get; set; }
+        public int Wisdom { get; set; }
+        public int Charisma { get; set; }
+
+        public Boolean Acrobatics { get; set; }
+        public Boolean AnimalHandling { get; set; }
+        public Boolean Arcana { get; set; }
+        public Boolean Athletics { get; set; }
+        public Boolean Deception { get; set; }
+        public Boolean History { get; set; }
+        public Boolean Insight { get; set; }
+        public Boolean Intimidation { get; set; }
+        public Boolean Investigation { get; set; }
+        public Boolean Medicine { get; set; }
+        public Boolean Nature { get; set; }
+        public Boolean Perception { get; set; }
+        public Boolean Performance { get; set; }
+        public Boolean Persuasion { get; set; }
+        public Boolean Religion { get; set; }
+        public Boolean SleightOfHand { get; set; }
+        public Boolean Stealth { get; set; }
+        public Boolean Survival { get; set; }
+
+        public string DMNotes { get; set; }
+        public string Spells { get; set; }
+        public string Inventory { get; set; }
+
         public Character()
         {
 
