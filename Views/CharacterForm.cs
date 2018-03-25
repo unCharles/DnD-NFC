@@ -27,12 +27,17 @@ namespace DnD_NFC
         public void InitializeData(int id)
         {
             character = Character.Find(id);
+            if (character.CharacterImage != null)
+            {
+                characterImageBox.Image = new Bitmap(character.CharacterImage);
+            }
         }
 
         public void InitializeFunctions()
         {
             saveButton.Click += Save;
             cancelButton.Click += Cancel;
+            chooseImageButton.Click += ChooseImage;
         }
 
         private void InitializeDataBindings()
@@ -91,6 +96,21 @@ namespace DnD_NFC
         public void Cancel(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void ChooseImage(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Open Image";
+                dlg.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    characterImageBox.Image = new Bitmap(dlg.FileName);
+                    character.CharacterImage = dlg.FileName;
+                }
+            }
         }
 
     }

@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.IO;
 
 namespace DnD_NFC
 {
@@ -54,6 +56,8 @@ namespace DnD_NFC
         public string DMNotes { get; set; }
         public string Spells { get; set; }
         public string Inventory { get; set; }
+
+        public string CharacterImage { get; set; }
 
         public Character()
         {

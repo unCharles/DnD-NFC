@@ -93,6 +93,8 @@
             this.spellsInput = new System.Windows.Forms.TextBox();
             this.levelInput = new System.Windows.Forms.NumericUpDown();
             this.armorClassLabel = new System.Windows.Forms.Label();
+            this.chooseImageButton = new System.Windows.Forms.Button();
+            this.characterImageBox = new System.Windows.Forms.PictureBox();
             this.imageUploader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chaInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wisInput)).BeginInit();
@@ -106,11 +108,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.acInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hpInput)).BeginInit();
             this.proficienciesBox.SuspendLayout();
+            this.imageUploadBox.SuspendLayout();
             this.dmNotesBox.SuspendLayout();
             this.inventoryBox.SuspendLayout();
             this.settingsBox.SuspendLayout();
             this.spellsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterImageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -649,6 +653,8 @@
             // 
             // imageUploadBox
             // 
+            this.imageUploadBox.Controls.Add(this.characterImageBox);
+            this.imageUploadBox.Controls.Add(this.chooseImageButton);
             this.imageUploadBox.Location = new System.Drawing.Point(16, 305);
             this.imageUploadBox.Name = "imageUploadBox";
             this.imageUploadBox.Size = new System.Drawing.Size(303, 401);
@@ -763,6 +769,23 @@
             this.armorClassLabel.TabIndex = 24;
             this.armorClassLabel.Text = "Armor Class";
             // 
+            // chooseImageButton
+            // 
+            this.chooseImageButton.Location = new System.Drawing.Point(87, 361);
+            this.chooseImageButton.Name = "chooseImageButton";
+            this.chooseImageButton.Size = new System.Drawing.Size(113, 23);
+            this.chooseImageButton.TabIndex = 0;
+            this.chooseImageButton.Text = "Choose Image";
+            this.chooseImageButton.UseVisualStyleBackColor = true;
+            // 
+            // characterImageBox
+            // 
+            this.characterImageBox.Location = new System.Drawing.Point(6, 19);
+            this.characterImageBox.Name = "characterImageBox";
+            this.characterImageBox.Size = new System.Drawing.Size(291, 317);
+            this.characterImageBox.TabIndex = 1;
+            this.characterImageBox.TabStop = false;
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -809,6 +832,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.hpInput)).EndInit();
             this.proficienciesBox.ResumeLayout(false);
             this.proficienciesBox.PerformLayout();
+            this.imageUploadBox.ResumeLayout(false);
             this.dmNotesBox.ResumeLayout(false);
             this.dmNotesBox.PerformLayout();
             this.inventoryBox.ResumeLayout(false);
@@ -817,6 +841,7 @@
             this.spellsBox.ResumeLayout(false);
             this.spellsBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterImageBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -889,5 +914,7 @@
         private System.Windows.Forms.NumericUpDown hpInput;
         private System.Windows.Forms.NumericUpDown levelInput;
         private System.Windows.Forms.Label armorClassLabel;
+        private System.Windows.Forms.Button chooseImageButton;
+        private System.Windows.Forms.PictureBox characterImageBox;
     }
 }
