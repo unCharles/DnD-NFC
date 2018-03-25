@@ -12,6 +12,13 @@ namespace DnD_NFC
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public string CharacterClass { get; set; }
+        public string Race { get; set; }
+        public string Origin { get; set; }
+        public string Specialization { get; set; }
+        public string Alignment { get; set; }
+
+        public int Level { get; set; }
 
         public Character()
         {

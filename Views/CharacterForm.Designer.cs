@@ -30,39 +30,27 @@
         {
             this.nameLabel = new System.Windows.Forms.Label();
             this.nameInput = new System.Windows.Forms.TextBox();
-            this.levelInput = new System.Windows.Forms.TextBox();
             this.levelLabel = new System.Windows.Forms.Label();
             this.raceInput = new System.Windows.Forms.TextBox();
             this.raceLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.classInput = new System.Windows.Forms.TextBox();
             this.classLabel = new System.Windows.Forms.Label();
             this.specializationInput = new System.Windows.Forms.TextBox();
             this.specializationLabel = new System.Windows.Forms.Label();
             this.originInput = new System.Windows.Forms.TextBox();
             this.originLabel = new System.Windows.Forms.Label();
             this.imageUploader = new System.Windows.Forms.GroupBox();
-            this.chaInput = new System.Windows.Forms.TextBox();
             this.chaLabel = new System.Windows.Forms.Label();
-            this.wisInput = new System.Windows.Forms.TextBox();
             this.wisLabel = new System.Windows.Forms.Label();
-            this.intInput = new System.Windows.Forms.TextBox();
             this.intLabel = new System.Windows.Forms.Label();
-            this.conInput = new System.Windows.Forms.TextBox();
             this.conLabel = new System.Windows.Forms.Label();
-            this.dexInput = new System.Windows.Forms.TextBox();
             this.dexLabel = new System.Windows.Forms.Label();
-            this.strInput = new System.Windows.Forms.TextBox();
             this.strLabel = new System.Windows.Forms.Label();
             this.defenseBox = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.hitPointsLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.armorClassLabel = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.alignmentInput = new System.Windows.Forms.TextBox();
             this.alignmentLabel = new System.Windows.Forms.Label();
             this.proficienciesBox = new System.Windows.Forms.GroupBox();
             this.survivalCheckbox = new System.Windows.Forms.CheckBox();
@@ -93,6 +81,17 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.spellsBox = new System.Windows.Forms.GroupBox();
             this.spellsInput = new System.Windows.Forms.TextBox();
+            this.strInput = new System.Windows.Forms.NumericUpDown();
+            this.dexInput = new System.Windows.Forms.NumericUpDown();
+            this.conInput = new System.Windows.Forms.NumericUpDown();
+            this.intInput = new System.Windows.Forms.NumericUpDown();
+            this.wisInput = new System.Windows.Forms.NumericUpDown();
+            this.chaInput = new System.Windows.Forms.NumericUpDown();
+            this.hpInput = new System.Windows.Forms.NumericUpDown();
+            this.acInput = new System.Windows.Forms.NumericUpDown();
+            this.initiativeInput = new System.Windows.Forms.NumericUpDown();
+            this.speedInput = new System.Windows.Forms.NumericUpDown();
+            this.levelInput = new System.Windows.Forms.NumericUpDown();
             this.imageUploader.SuspendLayout();
             this.defenseBox.SuspendLayout();
             this.proficienciesBox.SuspendLayout();
@@ -100,6 +99,17 @@
             this.inventoryBox.SuspendLayout();
             this.settingsBox.SuspendLayout();
             this.spellsBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.strInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dexInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.conInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wisInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chaInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hpInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.initiativeInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speedInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.levelInput)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -117,22 +127,14 @@
             this.nameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameInput.Location = new System.Drawing.Point(16, 32);
             this.nameInput.Name = "nameInput";
-            this.nameInput.Size = new System.Drawing.Size(182, 26);
+            this.nameInput.Size = new System.Drawing.Size(177, 26);
             this.nameInput.TabIndex = 1;
-            // 
-            // levelInput
-            // 
-            this.levelInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelInput.Location = new System.Drawing.Point(204, 32);
-            this.levelInput.Name = "levelInput";
-            this.levelInput.Size = new System.Drawing.Size(52, 26);
-            this.levelInput.TabIndex = 3;
             // 
             // levelLabel
             // 
             this.levelLabel.AutoSize = true;
             this.levelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelLabel.Location = new System.Drawing.Point(207, 9);
+            this.levelLabel.Location = new System.Drawing.Point(203, 9);
             this.levelLabel.Name = "levelLabel";
             this.levelLabel.Size = new System.Drawing.Size(46, 20);
             this.levelLabel.TabIndex = 2;
@@ -156,13 +158,13 @@
             this.raceLabel.TabIndex = 4;
             this.raceLabel.Text = "Race";
             // 
-            // textBox1
+            // classInput
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(401, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 26);
-            this.textBox1.TabIndex = 7;
+            this.classInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classInput.Location = new System.Drawing.Point(401, 32);
+            this.classInput.Name = "classInput";
+            this.classInput.Size = new System.Drawing.Size(159, 26);
+            this.classInput.TabIndex = 7;
             // 
             // classLabel
             // 
@@ -213,16 +215,16 @@
             // imageUploader
             // 
             this.imageUploader.Controls.Add(this.chaInput);
-            this.imageUploader.Controls.Add(this.chaLabel);
             this.imageUploader.Controls.Add(this.wisInput);
-            this.imageUploader.Controls.Add(this.wisLabel);
             this.imageUploader.Controls.Add(this.intInput);
-            this.imageUploader.Controls.Add(this.intLabel);
             this.imageUploader.Controls.Add(this.conInput);
-            this.imageUploader.Controls.Add(this.conLabel);
             this.imageUploader.Controls.Add(this.dexInput);
-            this.imageUploader.Controls.Add(this.dexLabel);
             this.imageUploader.Controls.Add(this.strInput);
+            this.imageUploader.Controls.Add(this.chaLabel);
+            this.imageUploader.Controls.Add(this.wisLabel);
+            this.imageUploader.Controls.Add(this.intLabel);
+            this.imageUploader.Controls.Add(this.conLabel);
+            this.imageUploader.Controls.Add(this.dexLabel);
             this.imageUploader.Controls.Add(this.strLabel);
             this.imageUploader.Location = new System.Drawing.Point(16, 74);
             this.imageUploader.Name = "imageUploader";
@@ -231,113 +233,65 @@
             this.imageUploader.TabStop = false;
             this.imageUploader.Text = "Stats";
             // 
-            // chaInput
-            // 
-            this.chaInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chaInput.Location = new System.Drawing.Point(53, 182);
-            this.chaInput.Name = "chaInput";
-            this.chaInput.Size = new System.Drawing.Size(52, 26);
-            this.chaInput.TabIndex = 15;
-            // 
             // chaLabel
             // 
             this.chaLabel.AutoSize = true;
             this.chaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chaLabel.Location = new System.Drawing.Point(6, 185);
+            this.chaLabel.Location = new System.Drawing.Point(6, 189);
             this.chaLabel.Name = "chaLabel";
             this.chaLabel.Size = new System.Drawing.Size(43, 20);
             this.chaLabel.TabIndex = 14;
             this.chaLabel.Text = "CHA";
             this.chaLabel.Visible = false;
             // 
-            // wisInput
-            // 
-            this.wisInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wisInput.Location = new System.Drawing.Point(53, 150);
-            this.wisInput.Name = "wisInput";
-            this.wisInput.Size = new System.Drawing.Size(52, 26);
-            this.wisInput.TabIndex = 13;
-            // 
             // wisLabel
             // 
             this.wisLabel.AutoSize = true;
             this.wisLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wisLabel.Location = new System.Drawing.Point(7, 153);
+            this.wisLabel.Location = new System.Drawing.Point(9, 157);
             this.wisLabel.Name = "wisLabel";
             this.wisLabel.Size = new System.Drawing.Size(40, 20);
             this.wisLabel.TabIndex = 12;
             this.wisLabel.Text = "WIS";
             this.wisLabel.Visible = false;
             // 
-            // intInput
-            // 
-            this.intInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.intInput.Location = new System.Drawing.Point(53, 118);
-            this.intInput.Name = "intInput";
-            this.intInput.Size = new System.Drawing.Size(52, 26);
-            this.intInput.TabIndex = 11;
-            // 
             // intLabel
             // 
             this.intLabel.AutoSize = true;
             this.intLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.intLabel.Location = new System.Drawing.Point(13, 121);
+            this.intLabel.Location = new System.Drawing.Point(15, 125);
             this.intLabel.Name = "intLabel";
             this.intLabel.Size = new System.Drawing.Size(34, 20);
             this.intLabel.TabIndex = 10;
             this.intLabel.Text = "INT";
             this.intLabel.Visible = false;
             // 
-            // conInput
-            // 
-            this.conInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conInput.Location = new System.Drawing.Point(53, 86);
-            this.conInput.Name = "conInput";
-            this.conInput.Size = new System.Drawing.Size(52, 26);
-            this.conInput.TabIndex = 9;
-            // 
             // conLabel
             // 
             this.conLabel.AutoSize = true;
             this.conLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conLabel.Location = new System.Drawing.Point(6, 89);
+            this.conLabel.Location = new System.Drawing.Point(7, 92);
             this.conLabel.Name = "conLabel";
             this.conLabel.Size = new System.Drawing.Size(43, 20);
             this.conLabel.TabIndex = 8;
             this.conLabel.Text = "CON";
             this.conLabel.Visible = false;
             // 
-            // dexInput
-            // 
-            this.dexInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dexInput.Location = new System.Drawing.Point(53, 54);
-            this.dexInput.Name = "dexInput";
-            this.dexInput.Size = new System.Drawing.Size(52, 26);
-            this.dexInput.TabIndex = 7;
-            // 
             // dexLabel
             // 
             this.dexLabel.AutoSize = true;
             this.dexLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dexLabel.Location = new System.Drawing.Point(4, 60);
+            this.dexLabel.Location = new System.Drawing.Point(7, 60);
             this.dexLabel.Name = "dexLabel";
             this.dexLabel.Size = new System.Drawing.Size(43, 20);
             this.dexLabel.TabIndex = 6;
             this.dexLabel.Text = "DEX";
             // 
-            // strInput
-            // 
-            this.strInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strInput.Location = new System.Drawing.Point(53, 22);
-            this.strInput.Name = "strInput";
-            this.strInput.Size = new System.Drawing.Size(52, 26);
-            this.strInput.TabIndex = 5;
-            // 
             // strLabel
             // 
             this.strLabel.AutoSize = true;
             this.strLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strLabel.Location = new System.Drawing.Point(6, 28);
+            this.strLabel.Location = new System.Drawing.Point(9, 28);
             this.strLabel.Name = "strLabel";
             this.strLabel.Size = new System.Drawing.Size(41, 20);
             this.strLabel.TabIndex = 4;
@@ -345,100 +299,57 @@
             // 
             // defenseBox
             // 
-            this.defenseBox.Controls.Add(this.textBox5);
+            this.defenseBox.Controls.Add(this.speedInput);
+            this.defenseBox.Controls.Add(this.initiativeInput);
+            this.defenseBox.Controls.Add(this.acInput);
+            this.defenseBox.Controls.Add(this.hpInput);
             this.defenseBox.Controls.Add(this.label3);
-            this.defenseBox.Controls.Add(this.textBox4);
             this.defenseBox.Controls.Add(this.label2);
-            this.defenseBox.Controls.Add(this.textBox3);
             this.defenseBox.Controls.Add(this.hitPointsLabel);
-            this.defenseBox.Controls.Add(this.textBox2);
-            this.defenseBox.Controls.Add(this.armorClassLabel);
             this.defenseBox.Location = new System.Drawing.Point(151, 74);
             this.defenseBox.Name = "defenseBox";
-            this.defenseBox.Size = new System.Drawing.Size(168, 223);
+            this.defenseBox.Size = new System.Drawing.Size(168, 222);
             this.defenseBox.TabIndex = 13;
             this.defenseBox.TabStop = false;
             this.defenseBox.Text = "Defense";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(100, 115);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(52, 26);
-            this.textBox5.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(41, 118);
+            this.label3.Location = new System.Drawing.Point(41, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 20);
             this.label3.TabIndex = 12;
             this.label3.Text = "Speed";
             // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(100, 83);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(52, 26);
-            this.textBox4.TabIndex = 11;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 86);
+            this.label2.Location = new System.Drawing.Point(30, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 20);
             this.label2.TabIndex = 10;
             this.label2.Text = "Initiative";
             // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(100, 20);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(52, 26);
-            this.textBox3.TabIndex = 9;
-            // 
             // hitPointsLabel
             // 
             this.hitPointsLabel.AutoSize = true;
             this.hitPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hitPointsLabel.Location = new System.Drawing.Point(21, 23);
+            this.hitPointsLabel.Location = new System.Drawing.Point(21, 17);
             this.hitPointsLabel.Name = "hitPointsLabel";
             this.hitPointsLabel.Size = new System.Drawing.Size(77, 20);
             this.hitPointsLabel.TabIndex = 8;
             this.hitPointsLabel.Text = "Hit Points";
             // 
-            // textBox2
+            // alignmentInput
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(100, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(52, 26);
-            this.textBox2.TabIndex = 7;
-            // 
-            // armorClassLabel
-            // 
-            this.armorClassLabel.AutoSize = true;
-            this.armorClassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.armorClassLabel.Location = new System.Drawing.Point(3, 54);
-            this.armorClassLabel.Name = "armorClassLabel";
-            this.armorClassLabel.Size = new System.Drawing.Size(95, 20);
-            this.armorClassLabel.TabIndex = 6;
-            this.armorClassLabel.Text = "Armor Class";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(871, 32);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(145, 26);
-            this.textBox6.TabIndex = 15;
+            this.alignmentInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alignmentInput.Location = new System.Drawing.Point(871, 32);
+            this.alignmentInput.Name = "alignmentInput";
+            this.alignmentInput.Size = new System.Drawing.Size(145, 26);
+            this.alignmentInput.TabIndex = 15;
             // 
             // alignmentLabel
             // 
@@ -756,18 +667,107 @@
             this.spellsInput.Size = new System.Drawing.Size(374, 196);
             this.spellsInput.TabIndex = 0;
             // 
+            // strInput
+            // 
+            this.strInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strInput.Location = new System.Drawing.Point(52, 25);
+            this.strInput.Name = "strInput";
+            this.strInput.Size = new System.Drawing.Size(63, 26);
+            this.strInput.TabIndex = 0;
+            // 
+            // dexInput
+            // 
+            this.dexInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dexInput.Location = new System.Drawing.Point(53, 57);
+            this.dexInput.Name = "dexInput";
+            this.dexInput.Size = new System.Drawing.Size(63, 26);
+            this.dexInput.TabIndex = 15;
+            // 
+            // conInput
+            // 
+            this.conInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conInput.Location = new System.Drawing.Point(52, 89);
+            this.conInput.Name = "conInput";
+            this.conInput.Size = new System.Drawing.Size(63, 26);
+            this.conInput.TabIndex = 16;
+            // 
+            // intInput
+            // 
+            this.intInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.intInput.Location = new System.Drawing.Point(52, 121);
+            this.intInput.Name = "intInput";
+            this.intInput.Size = new System.Drawing.Size(63, 26);
+            this.intInput.TabIndex = 17;
+            // 
+            // wisInput
+            // 
+            this.wisInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wisInput.Location = new System.Drawing.Point(52, 153);
+            this.wisInput.Name = "wisInput";
+            this.wisInput.Size = new System.Drawing.Size(63, 26);
+            this.wisInput.TabIndex = 18;
+            // 
+            // chaInput
+            // 
+            this.chaInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chaInput.Location = new System.Drawing.Point(52, 185);
+            this.chaInput.Name = "chaInput";
+            this.chaInput.Size = new System.Drawing.Size(63, 26);
+            this.chaInput.TabIndex = 19;
+            // 
+            // hpInput
+            // 
+            this.hpInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hpInput.Location = new System.Drawing.Point(99, 14);
+            this.hpInput.Name = "hpInput";
+            this.hpInput.Size = new System.Drawing.Size(63, 26);
+            this.hpInput.TabIndex = 20;
+            // 
+            // acInput
+            // 
+            this.acInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acInput.Location = new System.Drawing.Point(99, 47);
+            this.acInput.Name = "acInput";
+            this.acInput.Size = new System.Drawing.Size(63, 26);
+            this.acInput.TabIndex = 21;
+            // 
+            // initiativeInput
+            // 
+            this.initiativeInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.initiativeInput.Location = new System.Drawing.Point(99, 79);
+            this.initiativeInput.Name = "initiativeInput";
+            this.initiativeInput.Size = new System.Drawing.Size(63, 26);
+            this.initiativeInput.TabIndex = 22;
+            // 
+            // speedInput
+            // 
+            this.speedInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.speedInput.Location = new System.Drawing.Point(99, 111);
+            this.speedInput.Name = "speedInput";
+            this.speedInput.Size = new System.Drawing.Size(63, 26);
+            this.speedInput.TabIndex = 23;
+            // 
+            // levelInput
+            // 
+            this.levelInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.levelInput.Location = new System.Drawing.Point(199, 32);
+            this.levelInput.Name = "levelInput";
+            this.levelInput.Size = new System.Drawing.Size(57, 26);
+            this.levelInput.TabIndex = 24;
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1031, 718);
+            this.Controls.Add(this.levelInput);
             this.Controls.Add(this.spellsBox);
             this.Controls.Add(this.settingsBox);
             this.Controls.Add(this.inventoryBox);
             this.Controls.Add(this.dmNotesBox);
             this.Controls.Add(this.imageUploadBox);
             this.Controls.Add(this.proficienciesBox);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.alignmentInput);
             this.Controls.Add(this.alignmentLabel);
             this.Controls.Add(this.defenseBox);
             this.Controls.Add(this.imageUploader);
@@ -775,11 +775,10 @@
             this.Controls.Add(this.originLabel);
             this.Controls.Add(this.specializationInput);
             this.Controls.Add(this.specializationLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.classInput);
             this.Controls.Add(this.classLabel);
             this.Controls.Add(this.raceInput);
             this.Controls.Add(this.raceLabel);
-            this.Controls.Add(this.levelInput);
             this.Controls.Add(this.levelLabel);
             this.Controls.Add(this.nameInput);
             this.Controls.Add(this.nameLabel);
@@ -798,6 +797,17 @@
             this.settingsBox.ResumeLayout(false);
             this.spellsBox.ResumeLayout(false);
             this.spellsBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.strInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dexInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.conInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wisInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chaInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hpInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.initiativeInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speedInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.levelInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -807,39 +817,27 @@
 
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.TextBox nameInput;
-        private System.Windows.Forms.TextBox levelInput;
         private System.Windows.Forms.Label levelLabel;
         private System.Windows.Forms.TextBox raceInput;
         private System.Windows.Forms.Label raceLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox classInput;
         private System.Windows.Forms.Label classLabel;
         private System.Windows.Forms.TextBox specializationInput;
         private System.Windows.Forms.Label specializationLabel;
         private System.Windows.Forms.TextBox originInput;
         private System.Windows.Forms.Label originLabel;
         private System.Windows.Forms.GroupBox imageUploader;
-        private System.Windows.Forms.TextBox chaInput;
         private System.Windows.Forms.Label chaLabel;
-        private System.Windows.Forms.TextBox wisInput;
         private System.Windows.Forms.Label wisLabel;
-        private System.Windows.Forms.TextBox intInput;
         private System.Windows.Forms.Label intLabel;
-        private System.Windows.Forms.TextBox conInput;
         private System.Windows.Forms.Label conLabel;
-        private System.Windows.Forms.TextBox dexInput;
         private System.Windows.Forms.Label dexLabel;
-        private System.Windows.Forms.TextBox strInput;
         private System.Windows.Forms.Label strLabel;
         private System.Windows.Forms.GroupBox defenseBox;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label armorClassLabel;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label hitPointsLabel;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox alignmentInput;
         private System.Windows.Forms.Label alignmentLabel;
         private System.Windows.Forms.GroupBox proficienciesBox;
         private System.Windows.Forms.CheckBox survivalCheckbox;
@@ -870,5 +868,16 @@
         private System.Windows.Forms.TextBox spellsInput;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.NumericUpDown chaInput;
+        private System.Windows.Forms.NumericUpDown wisInput;
+        private System.Windows.Forms.NumericUpDown intInput;
+        private System.Windows.Forms.NumericUpDown conInput;
+        private System.Windows.Forms.NumericUpDown dexInput;
+        private System.Windows.Forms.NumericUpDown strInput;
+        private System.Windows.Forms.NumericUpDown speedInput;
+        private System.Windows.Forms.NumericUpDown initiativeInput;
+        private System.Windows.Forms.NumericUpDown acInput;
+        private System.Windows.Forms.NumericUpDown hpInput;
+        private System.Windows.Forms.NumericUpDown levelInput;
     }
 }

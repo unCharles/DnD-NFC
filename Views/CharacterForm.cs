@@ -36,8 +36,15 @@ namespace DnD_NFC
         }
 
         private void InitializeDataBindings()
-        {   
+        {
             this.nameInput.DataBindings.Add(new Binding("Text", character, "Name"));
+            this.classInput.DataBindings.Add(new Binding("Text", character, "CharacterClass"));
+            this.raceInput.DataBindings.Add(new Binding("Text", character, "Race"));
+            this.originInput.DataBindings.Add(new Binding("Text", character, "Origin"));
+            this.specializationInput.DataBindings.Add(new Binding("Text", character, "Specialization"));
+            this.alignmentInput.DataBindings.Add(new Binding("Text", character, "Alignment"));
+
+            this.levelInput.DataBindings.Add(new Binding("Value", character, "Level"));
         }
 
         public void Save(object sender, EventArgs e)
