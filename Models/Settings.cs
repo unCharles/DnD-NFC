@@ -14,6 +14,8 @@ namespace DnD_NFC.Models
         public string DefaultImage { get; set; }
         public Boolean EnableDisplay { get; set; }
         public Boolean EnableNFC { get; set; }
+        public string MapFolder { get; set; }
+        public string GraphicsFolder { get; set; }
 
         public static Settings Get()
         {

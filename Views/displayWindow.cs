@@ -21,6 +21,7 @@ namespace DnD_NFC
 
         public void DisplayCharacter(int id)
         {
+            pictureBox.Hide();
             InitializeCharacter(id);
         }
 
@@ -31,7 +32,27 @@ namespace DnD_NFC
 
         public void SetMonitor(int monitor)
         {
-            this.Location = Screen.AllScreens[monitor].WorkingArea.Location;
+            if (monitor > Screen.AllScreens.Length - 1)
+            {
+                monitor = 0;
+            }
+            var screen = Screen.AllScreens[monitor];
+
+            StartPosition = FormStartPosition.Manual;
+            Location = screen.WorkingArea.Location;
+            FormBorderStyle = FormBorderStyle.None;
+            Size = new Size(screen.WorkingArea.Width, screen.WorkingArea.Height);
+        }
+
+        public void DisplayImage(string image)
+        {
+            character = null;
+            if (image != null)
+            {
+                pictureBox.Image = new Bitmap(image);
+                pictureBox.Show();
+            }
+
         }
     }
 }

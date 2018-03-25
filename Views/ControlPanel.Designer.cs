@@ -25,24 +25,36 @@ namespace DnD_NFC
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.defaultImage = new System.Windows.Forms.PictureBox();
+            this.setDefaultImageButton = new System.Windows.Forms.Button();
+            this.monitorSelector = new System.Windows.Forms.ComboBox();
             this.nfcToggle = new System.Windows.Forms.CheckBox();
             this.settingsLabel = new System.Windows.Forms.Label();
             this.displayToggle = new System.Windows.Forms.CheckBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.characterTab = new System.Windows.Forms.TabPage();
+            this.clearButton = new System.Windows.Forms.Button();
             this.characterListBox = new System.Windows.Forms.ListBox();
             this.displayCharacterButton = new System.Windows.Forms.Button();
             this.deleteCharacterButton = new System.Windows.Forms.Button();
             this.editCharacterButton = new System.Windows.Forms.Button();
             this.newCharacterButton = new System.Windows.Forms.Button();
             this.mapsTab = new System.Windows.Forms.TabPage();
-            this.monitorSelector = new System.Windows.Forms.ComboBox();
+            this.mapImageList = new System.Windows.Forms.ListBox();
+            this.mapThumbnailImage = new System.Windows.Forms.PictureBox();
+            this.refreshMapImages = new System.Windows.Forms.Button();
+            this.mapReset = new System.Windows.Forms.Button();
+            this.displayMap = new System.Windows.Forms.Button();
+            this.chooseMapFolder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.defaultImage)).BeginInit();
             this.tabControl.SuspendLayout();
             this.characterTab.SuspendLayout();
+            this.mapsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mapThumbnailImage)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -53,6 +65,8 @@ namespace DnD_NFC
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.defaultImage);
+            this.splitContainer1.Panel1.Controls.Add(this.setDefaultImageButton);
             this.splitContainer1.Panel1.Controls.Add(this.monitorSelector);
             this.splitContainer1.Panel1.Controls.Add(this.nfcToggle);
             this.splitContainer1.Panel1.Controls.Add(this.settingsLabel);
@@ -64,6 +78,35 @@ namespace DnD_NFC
             this.splitContainer1.Size = new System.Drawing.Size(1064, 697);
             this.splitContainer1.SplitterDistance = 224;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // defaultImage
+            // 
+            this.defaultImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.defaultImage.Location = new System.Drawing.Point(18, 127);
+            this.defaultImage.Name = "defaultImage";
+            this.defaultImage.Size = new System.Drawing.Size(187, 102);
+            this.defaultImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.defaultImage.TabIndex = 5;
+            this.defaultImage.TabStop = false;
+            // 
+            // setDefaultImageButton
+            // 
+            this.setDefaultImageButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.setDefaultImageButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.setDefaultImageButton.Location = new System.Drawing.Point(18, 235);
+            this.setDefaultImageButton.Name = "setDefaultImageButton";
+            this.setDefaultImageButton.Size = new System.Drawing.Size(121, 35);
+            this.setDefaultImageButton.TabIndex = 4;
+            this.setDefaultImageButton.Text = "Set Default Image";
+            this.setDefaultImageButton.UseVisualStyleBackColor = false;
+            // 
+            // monitorSelector
+            // 
+            this.monitorSelector.FormattingEnabled = true;
+            this.monitorSelector.Location = new System.Drawing.Point(18, 70);
+            this.monitorSelector.Name = "monitorSelector";
+            this.monitorSelector.Size = new System.Drawing.Size(121, 21);
+            this.monitorSelector.TabIndex = 3;
             // 
             // nfcToggle
             // 
@@ -108,6 +151,7 @@ namespace DnD_NFC
             // 
             // characterTab
             // 
+            this.characterTab.Controls.Add(this.clearButton);
             this.characterTab.Controls.Add(this.characterListBox);
             this.characterTab.Controls.Add(this.displayCharacterButton);
             this.characterTab.Controls.Add(this.deleteCharacterButton);
@@ -120,6 +164,18 @@ namespace DnD_NFC
             this.characterTab.TabIndex = 0;
             this.characterTab.Text = "Characters";
             this.characterTab.UseVisualStyleBackColor = true;
+            // 
+            // clearButton
+            // 
+            this.clearButton.BackColor = System.Drawing.Color.Goldenrod;
+            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.ForeColor = System.Drawing.Color.Snow;
+            this.clearButton.Location = new System.Drawing.Point(547, 12);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(131, 47);
+            this.clearButton.TabIndex = 5;
+            this.clearButton.Text = "Reset";
+            this.clearButton.UseVisualStyleBackColor = false;
             // 
             // characterListBox
             // 
@@ -182,6 +238,12 @@ namespace DnD_NFC
             // 
             // mapsTab
             // 
+            this.mapsTab.Controls.Add(this.mapImageList);
+            this.mapsTab.Controls.Add(this.mapThumbnailImage);
+            this.mapsTab.Controls.Add(this.refreshMapImages);
+            this.mapsTab.Controls.Add(this.mapReset);
+            this.mapsTab.Controls.Add(this.displayMap);
+            this.mapsTab.Controls.Add(this.chooseMapFolder);
             this.mapsTab.Location = new System.Drawing.Point(4, 29);
             this.mapsTab.Name = "mapsTab";
             this.mapsTab.Padding = new System.Windows.Forms.Padding(3);
@@ -190,13 +252,75 @@ namespace DnD_NFC
             this.mapsTab.Text = "Maps";
             this.mapsTab.UseVisualStyleBackColor = true;
             // 
-            // monitorSelector
+            // mapImageList
             // 
-            this.monitorSelector.FormattingEnabled = true;
-            this.monitorSelector.Location = new System.Drawing.Point(18, 70);
-            this.monitorSelector.Name = "monitorSelector";
-            this.monitorSelector.Size = new System.Drawing.Size(121, 21);
-            this.monitorSelector.TabIndex = 3;
+            this.mapImageList.AccessibleDescription = "";
+            this.mapImageList.AccessibleName = "";
+            this.mapImageList.FormattingEnabled = true;
+            this.mapImageList.ItemHeight = 20;
+            this.mapImageList.Location = new System.Drawing.Point(34, 173);
+            this.mapImageList.Name = "mapImageList";
+            this.mapImageList.Size = new System.Drawing.Size(758, 464);
+            this.mapImageList.TabIndex = 11;
+            // 
+            // mapThumbnailImage
+            // 
+            this.mapThumbnailImage.BackColor = System.Drawing.Color.Gainsboro;
+            this.mapThumbnailImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.mapThumbnailImage.Location = new System.Drawing.Point(280, 13);
+            this.mapThumbnailImage.Name = "mapThumbnailImage";
+            this.mapThumbnailImage.Size = new System.Drawing.Size(261, 146);
+            this.mapThumbnailImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mapThumbnailImage.TabIndex = 10;
+            this.mapThumbnailImage.TabStop = false;
+            // 
+            // refreshMapImages
+            // 
+            this.refreshMapImages.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.refreshMapImages.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshMapImages.ForeColor = System.Drawing.Color.Snow;
+            this.refreshMapImages.Location = new System.Drawing.Point(143, 9);
+            this.refreshMapImages.Name = "refreshMapImages";
+            this.refreshMapImages.Size = new System.Drawing.Size(131, 47);
+            this.refreshMapImages.TabIndex = 9;
+            this.refreshMapImages.Text = "Refresh";
+            this.refreshMapImages.UseVisualStyleBackColor = false;
+            // 
+            // mapReset
+            // 
+            this.mapReset.BackColor = System.Drawing.Color.Goldenrod;
+            this.mapReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mapReset.ForeColor = System.Drawing.Color.Snow;
+            this.mapReset.Location = new System.Drawing.Point(547, 12);
+            this.mapReset.Name = "mapReset";
+            this.mapReset.Size = new System.Drawing.Size(131, 47);
+            this.mapReset.TabIndex = 8;
+            this.mapReset.Text = "Reset";
+            this.mapReset.UseVisualStyleBackColor = false;
+            // 
+            // displayMap
+            // 
+            this.displayMap.BackColor = System.Drawing.Color.MidnightBlue;
+            this.displayMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayMap.ForeColor = System.Drawing.Color.Snow;
+            this.displayMap.Location = new System.Drawing.Point(684, 12);
+            this.displayMap.Name = "displayMap";
+            this.displayMap.Size = new System.Drawing.Size(131, 47);
+            this.displayMap.TabIndex = 7;
+            this.displayMap.Text = "Display";
+            this.displayMap.UseVisualStyleBackColor = false;
+            // 
+            // chooseMapFolder
+            // 
+            this.chooseMapFolder.BackColor = System.Drawing.Color.Green;
+            this.chooseMapFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chooseMapFolder.ForeColor = System.Drawing.Color.Snow;
+            this.chooseMapFolder.Location = new System.Drawing.Point(6, 9);
+            this.chooseMapFolder.Name = "chooseMapFolder";
+            this.chooseMapFolder.Size = new System.Drawing.Size(131, 47);
+            this.chooseMapFolder.TabIndex = 6;
+            this.chooseMapFolder.Text = "Choose Folder";
+            this.chooseMapFolder.UseVisualStyleBackColor = false;
             // 
             // ControlPanel
             // 
@@ -211,8 +335,11 @@ namespace DnD_NFC
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.defaultImage)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.characterTab.ResumeLayout(false);
+            this.mapsTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mapThumbnailImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -232,6 +359,15 @@ namespace DnD_NFC
         private System.Windows.Forms.CheckBox nfcToggle;
         private System.Windows.Forms.ListBox characterListBox;
         private System.Windows.Forms.ComboBox monitorSelector;
+        private System.Windows.Forms.PictureBox defaultImage;
+        private System.Windows.Forms.Button setDefaultImageButton;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.ListBox mapImageList;
+        private System.Windows.Forms.PictureBox mapThumbnailImage;
+        private System.Windows.Forms.Button refreshMapImages;
+        private System.Windows.Forms.Button mapReset;
+        private System.Windows.Forms.Button displayMap;
+        private System.Windows.Forms.Button chooseMapFolder;
     }
 }
 

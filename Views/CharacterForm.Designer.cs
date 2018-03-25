@@ -53,6 +53,7 @@
             this.dexLabel = new System.Windows.Forms.Label();
             this.strLabel = new System.Windows.Forms.Label();
             this.defenseBox = new System.Windows.Forms.GroupBox();
+            this.armorClassLabel = new System.Windows.Forms.Label();
             this.speedInput = new System.Windows.Forms.NumericUpDown();
             this.initiativeInput = new System.Windows.Forms.NumericUpDown();
             this.acInput = new System.Windows.Forms.NumericUpDown();
@@ -82,6 +83,8 @@
             this.animalHandlingCheckbox = new System.Windows.Forms.CheckBox();
             this.acrobaticsCheckbox = new System.Windows.Forms.CheckBox();
             this.imageUploadBox = new System.Windows.Forms.GroupBox();
+            this.characterImageBox = new System.Windows.Forms.PictureBox();
+            this.chooseImageButton = new System.Windows.Forms.Button();
             this.dmNotesBox = new System.Windows.Forms.GroupBox();
             this.dmNotesInput = new System.Windows.Forms.TextBox();
             this.inventoryBox = new System.Windows.Forms.GroupBox();
@@ -92,9 +95,6 @@
             this.spellsBox = new System.Windows.Forms.GroupBox();
             this.spellsInput = new System.Windows.Forms.TextBox();
             this.levelInput = new System.Windows.Forms.NumericUpDown();
-            this.armorClassLabel = new System.Windows.Forms.Label();
-            this.chooseImageButton = new System.Windows.Forms.Button();
-            this.characterImageBox = new System.Windows.Forms.PictureBox();
             this.imageUploader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chaInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wisInput)).BeginInit();
@@ -109,12 +109,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.hpInput)).BeginInit();
             this.proficienciesBox.SuspendLayout();
             this.imageUploadBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.characterImageBox)).BeginInit();
             this.dmNotesBox.SuspendLayout();
             this.inventoryBox.SuspendLayout();
             this.settingsBox.SuspendLayout();
             this.spellsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.characterImageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -362,6 +362,16 @@
             this.defenseBox.TabIndex = 13;
             this.defenseBox.TabStop = false;
             this.defenseBox.Text = "Defense";
+            // 
+            // armorClassLabel
+            // 
+            this.armorClassLabel.AutoSize = true;
+            this.armorClassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.armorClassLabel.Location = new System.Drawing.Point(2, 50);
+            this.armorClassLabel.Name = "armorClassLabel";
+            this.armorClassLabel.Size = new System.Drawing.Size(95, 20);
+            this.armorClassLabel.TabIndex = 24;
+            this.armorClassLabel.Text = "Armor Class";
             // 
             // speedInput
             // 
@@ -662,6 +672,24 @@
             this.imageUploadBox.TabStop = false;
             this.imageUploadBox.Text = "Character Image";
             // 
+            // characterImageBox
+            // 
+            this.characterImageBox.Location = new System.Drawing.Point(6, 19);
+            this.characterImageBox.Name = "characterImageBox";
+            this.characterImageBox.Size = new System.Drawing.Size(291, 317);
+            this.characterImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.characterImageBox.TabIndex = 1;
+            this.characterImageBox.TabStop = false;
+            // 
+            // chooseImageButton
+            // 
+            this.chooseImageButton.Location = new System.Drawing.Point(87, 361);
+            this.chooseImageButton.Name = "chooseImageButton";
+            this.chooseImageButton.Size = new System.Drawing.Size(113, 23);
+            this.chooseImageButton.TabIndex = 0;
+            this.chooseImageButton.Text = "Choose Image";
+            this.chooseImageButton.UseVisualStyleBackColor = true;
+            // 
             // dmNotesBox
             // 
             this.dmNotesBox.Controls.Add(this.dmNotesInput);
@@ -759,33 +787,6 @@
             this.levelInput.Size = new System.Drawing.Size(57, 26);
             this.levelInput.TabIndex = 24;
             // 
-            // armorClassLabel
-            // 
-            this.armorClassLabel.AutoSize = true;
-            this.armorClassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.armorClassLabel.Location = new System.Drawing.Point(2, 50);
-            this.armorClassLabel.Name = "armorClassLabel";
-            this.armorClassLabel.Size = new System.Drawing.Size(95, 20);
-            this.armorClassLabel.TabIndex = 24;
-            this.armorClassLabel.Text = "Armor Class";
-            // 
-            // chooseImageButton
-            // 
-            this.chooseImageButton.Location = new System.Drawing.Point(87, 361);
-            this.chooseImageButton.Name = "chooseImageButton";
-            this.chooseImageButton.Size = new System.Drawing.Size(113, 23);
-            this.chooseImageButton.TabIndex = 0;
-            this.chooseImageButton.Text = "Choose Image";
-            this.chooseImageButton.UseVisualStyleBackColor = true;
-            // 
-            // characterImageBox
-            // 
-            this.characterImageBox.Location = new System.Drawing.Point(6, 19);
-            this.characterImageBox.Name = "characterImageBox";
-            this.characterImageBox.Size = new System.Drawing.Size(291, 317);
-            this.characterImageBox.TabIndex = 1;
-            this.characterImageBox.TabStop = false;
-            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -833,6 +834,7 @@
             this.proficienciesBox.ResumeLayout(false);
             this.proficienciesBox.PerformLayout();
             this.imageUploadBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.characterImageBox)).EndInit();
             this.dmNotesBox.ResumeLayout(false);
             this.dmNotesBox.PerformLayout();
             this.inventoryBox.ResumeLayout(false);
@@ -841,7 +843,6 @@
             this.spellsBox.ResumeLayout(false);
             this.spellsBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.characterImageBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
