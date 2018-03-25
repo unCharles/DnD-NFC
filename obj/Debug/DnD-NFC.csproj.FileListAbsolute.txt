@@ -1,0 +1,16 @@
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\obj\Debug\DnD-NFC.csprojResolveAssemblyReference.cache
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\obj\Debug\DnD_NFC.CharacterForm.resources
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\obj\Debug\DnD_NFC.ControlPanel.resources
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\obj\Debug\DnD_NFC.Properties.Resources.resources
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\obj\Debug\DnD-NFC.csproj.GenerateResource.cache
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\obj\Debug\DnD-NFC.csproj.CoreCompileInputs.cache
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\bin\Debug\Config\Database1.mdf
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\bin\Debug\Config\Database1_log.ldf
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\bin\Debug\DnD-NFC.exe.config
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\bin\Debug\DnD-NFC.exe
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\bin\Debug\DnD-NFC.pdb
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\obj\Debug\DnD-NFC.exe
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\obj\Debug\DnD-NFC.pdb
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\bin\Debug\LiteDB.dll
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\bin\Debug\LiteDB.xml
+C:\Users\chaz\source\repos\DnD-NFC\DnD-NFC\obj\Debug\DnD-NFC.csproj.CopyComplete
