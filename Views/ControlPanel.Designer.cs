@@ -121,7 +121,8 @@ namespace DnD_NFC
             // 
             // characterListBox
             // 
-            this.characterListBox.DisplayMember = "name";
+            this.characterListBox.AccessibleDescription = "";
+            this.characterListBox.AccessibleName = "";
             this.characterListBox.FormattingEnabled = true;
             this.characterListBox.ItemHeight = 20;
             this.characterListBox.Location = new System.Drawing.Point(0, 72);
@@ -195,7 +196,6 @@ namespace DnD_NFC
             this.Controls.Add(this.splitContainer1);
             this.Name = "ControlPanel";
             this.Text = "DNDNFC Control Panel";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

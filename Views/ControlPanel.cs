@@ -27,7 +27,11 @@ namespace DnD_NFC
         private void EditCharacter(object sender, EventArgs e)
         {
             Character character = (Character)characterListBox.SelectedItem;
-            new CharacterForm(character.Id, this).Show();
+            if (character != null)
+            {
+                new CharacterForm(character.Id, this).Show();
+            }
+
         }
 
         private void NewCharacter(object sender, EventArgs e)
@@ -39,13 +43,19 @@ namespace DnD_NFC
         private void DeleteCharacter(object sender, EventArgs e)
         {
             Character character = (Character)characterListBox.SelectedItem;
-            character.Delete();
-            InitializeData();
-        }
+            if (character == null) return;
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+            var confirmResult = MessageBox.Show(
+                "Are you sure to delete this Character?",
+                "Delete Character",
+                 MessageBoxButtons.YesNo
+            );
 
+            if (confirmResult == DialogResult.Yes)
+            {
+                character.Delete();
+                InitializeData();
+            }
         }
     }
 }

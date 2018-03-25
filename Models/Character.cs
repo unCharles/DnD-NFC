@@ -67,7 +67,14 @@ namespace DnD_NFC
 
         public void Delete()
         {
+            var db = new LiteDatabase(@Properties.Settings.Default.LiteDbPath);
+            var col = db.GetCollection<Character>("characters");
+            col.Delete(Id);
+        }
 
+        override public string ToString()
+        {
+            return $"{Name} - Level {Level} {Race} {CharacterClass}";
         }
 
     }
