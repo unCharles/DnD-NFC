@@ -1,7 +1,9 @@
-﻿using DnD_NFC.Models;
+﻿using DnD_NFC.Lib;
+using DnD_NFC.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -13,6 +15,7 @@ namespace DnD_NFC
         private Settings settings;
         private DisplayWindow displayWindow;
         private int screenCount;
+        private CardReader cardReader;
 
         public ControlPanel()
         {
@@ -21,11 +24,33 @@ namespace DnD_NFC
             InitializeData();
             InitializeFunctions();
             InitializeDisplayWindow();
+
+            cardReader = new CardReader(this, settings);
+        }
+
+        public void DeviceInitialized(Boolean initialized)
+        {
+            if (initialized)
+            {
+                nfcStatusLabel.Text = "Device Initialized";
+                nfcStatusLabel.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                nfcStatusLabel.Text = "Device Not Found";
+                nfcStatusLabel.ForeColor = System.Drawing.Color.Red;
+                nfcToggle.Enabled = false;
+            }
         }
 
         public void InitializeSettings()
         {
             settings = Settings.Get();
+        }
+
+        public void CardReadHandler(string docType, string message)
+        {
+            Console.WriteLine($"{docType} {message}");
         }
 
         public void InitializeDisplayWindow()

@@ -46,6 +46,7 @@ namespace DnD_NFC
             this.mapReset = new System.Windows.Forms.Button();
             this.displayMap = new System.Windows.Forms.Button();
             this.chooseMapFolder = new System.Windows.Forms.Button();
+            this.nfcStatusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -65,6 +66,7 @@ namespace DnD_NFC
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.nfcStatusLabel);
             this.splitContainer1.Panel1.Controls.Add(this.defaultImage);
             this.splitContainer1.Panel1.Controls.Add(this.setDefaultImageButton);
             this.splitContainer1.Panel1.Controls.Add(this.monitorSelector);
@@ -322,6 +324,14 @@ namespace DnD_NFC
             this.chooseMapFolder.Text = "Choose Folder";
             this.chooseMapFolder.UseVisualStyleBackColor = false;
             // 
+            // nfcStatusLabel
+            // 
+            this.nfcStatusLabel.AutoSize = true;
+            this.nfcStatusLabel.Location = new System.Drawing.Point(95, 104);
+            this.nfcStatusLabel.Name = "nfcStatusLabel";
+            this.nfcStatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.nfcStatusLabel.TabIndex = 6;
+            // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -368,6 +378,7 @@ namespace DnD_NFC
         private System.Windows.Forms.Button mapReset;
         private System.Windows.Forms.Button displayMap;
         private System.Windows.Forms.Button chooseMapFolder;
+        private System.Windows.Forms.Label nfcStatusLabel;
     }
 }
 
