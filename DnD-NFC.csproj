@@ -51,6 +51,9 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon2.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="LiteDB, Version=4.1.2.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
       <HintPath>..\packages\LiteDB.4.1.2\lib\net40\LiteDB.dll</HintPath>
@@ -60,6 +63,9 @@
     </Reference>
     <Reference Include="NdefLibrary, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\NdefLibrary.4.1.0\lib\netstandard1.4\NdefLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="PCSC, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\PCSC.4.0.0\lib\net40\PCSC.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -138,6 +144,7 @@
   <ItemGroup>
     <Compile Include="Lib\CardReader.cs" />
     <Compile Include="Models\DisplayableImage.cs" />
+    <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Views\DisplayWindow.cs">
       <SubType>Form</SubType>
@@ -201,6 +208,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="icon.ico" />
+    <Content Include="icon2.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

@@ -51,3 +51,5 @@ C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\System.Xml.ReaderWriter.dll
 C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\Windows.winmd
 C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\System.Runtime.WindowsRuntime.xml
+C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\PCSC.dll
+C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\PCSC.xml

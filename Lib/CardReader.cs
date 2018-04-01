@@ -1,19 +1,18 @@
 ﻿using DnD_NFC.Models;
-using NdefLibrary.Ndef;
+using PCSC;
+using PCSC.Exceptions;
+using PCSC.Monitoring;
 using System;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using Windows.Devices.Enumeration;
-using Windows.Networking.Proximity;
+using System.Windows.Forms;
 
 namespace DnD_NFC.Lib
 {
     class CardReader
     {
-        private ProximityDevice proximityDevice;
+        private ISCardMonitor monitor;
         private Settings settings;
         private ControlPanel cp;
+        public string NFCData { get; set; }
 
         public CardReader(ControlPanel controlPanel, Settings appSettings)
         {
@@ -22,74 +21,78 @@ namespace DnD_NFC.Lib
             InitializeDevice();
         }
 
-        private async void InitializeDevice()
+        private void InitializeDevice()
         {
-            //string selectorString = ProximityDevice.GetDeviceSelector();
-            string selectorString = "System.Devices.ModelName:~~'NFC'";
-
-            var deviceInfoCollection = await DeviceInformation.FindAllAsync(selectorString, null);
-
-            if (deviceInfoCollection.Count == 0)
+            var contextFactory = ContextFactory.Instance;
+            using (var context = contextFactory.Establish(SCardScope.System))
             {
-                Console.WriteLine("No proximity devices found.");
-                cp.DeviceInitialized(false);
-            }
-            else
-            {
-                Console.WriteLine($"{deviceInfoCollection.Count} Devices Found");
-                proximityDevice = ProximityDevice.FromId(deviceInfoCollection[0].Id);
-                cp.DeviceInitialized(true);
+                var readerNames = context.GetReaders();
+                InitializeReader(readerNames);
             }
         }
 
-        private void ProximityDeviceDeparted(ProximityDevice sender)
+        private void InitializeReader(string[] readerNames)
         {
-            Console.WriteLine("Proximate device arrived. id = " + sender.DeviceId + "\n");
-        }
+            var monitorFactory = MonitorFactory.Instance;
+            monitor = monitorFactory.Create(SCardScope.System);
 
-        private void ProximityDeviceArrived(ProximityDevice sender)
-        {
-            Console.WriteLine("Proximate device departed. id = " + sender.DeviceId + "\n");
-            if (settings.EnableNFC)
+            AttachToAllEvents(monitor);
+            foreach (var item in readerNames)
             {
-                sender.SubscribeForMessage("whatisthis", MessageReceivedHandler);
+                Console.WriteLine($"Initializing Reader: {item}");
+                monitor.Start(item);
+                Console.WriteLine($"Reader Initialized: {item}");
             }
         }
 
-        public void WriteToCard(string docType, string text)
+        private void AttachToAllEvents(ISCardMonitor monitor)
         {
-            var spRecord = new NdefSpRecord
-            {
-                Uri = text,
-                NfcAction = NdefSpActRecord.NfcActionType.DoAction
-            };
-            spRecord.AddTitle(new NdefTextRecord
-            {
-                Text = docType,
-                LanguageCode = "en"
-            });
-
-            var msg = new NdefMessage { spRecord };
-
-            proximityDevice.PublishBinaryMessage("NDEF:WriteTag", msg.ToByteArray().AsBuffer());
-            proximityDevice.PublishBinaryMessage("NDEF", msg.ToByteArray().AsBuffer());
+            monitor.CardInserted += (sender, args) => CardInserted(sender, args);
+            monitor.CardRemoved += (sender, args) => CardRemoved(args);
+            monitor.Initialized += (sender, args) => MonitorInitialized(args);
+            monitor.StatusChanged += StatusChanged;
+            monitor.MonitorException += MonitorException;
         }
 
-        private void MessageReceivedHandler(ProximityDevice sender, ProximityMessage message)
+        private void CardRemoved(CardStatusEventArgs args)
         {
-            var rawMsg = message.Data.ToArray();
-            var ndefMessage = NdefMessage.FromByteArray(rawMsg);
+            Console.WriteLine("Card Removed");
+            cp.NFCData = null;
+            cp.Invoke((MethodInvoker)(() => this.cp.SetNFCData()));
+        }
 
-            foreach (NdefRecord record in ndefMessage)
+        private void CardInserted(object sender, CardStatusEventArgs args)
+        {
+            Console.WriteLine("Card Inserted");
+            var hex = BitConverter.ToString(args.Atr ?? new byte[0]);
+            cp.NFCData = hex;
+            cp.Invoke((MethodInvoker)(() => this.cp.SetNFCData()));
+        }
+
+        private void MonitorInitialized(CardStatusEventArgs args)
+        {
+            cp.DeviceInitialized(true);
+        }
+
+        private void StatusChanged(object sender, StatusChangeEventArgs args)
+        {
+            Console.WriteLine($"State Changed: {args.NewState}");
+        }
+
+        private void MonitorException(object sender, PCSCException ex)
+        {
+            Console.WriteLine("Monitor exited due an error:", ex);
+            cp.DeviceErrored();
+        }
+
+        private static void PrintCardAtr(byte[] atr)
+        {
+            if (atr == null || atr.Length <= 0)
             {
-                Console.WriteLine("Record type: " + Encoding.UTF8.GetString(record.Type, 0, record.Type.Length));
-                if (record.CheckSpecializedType(false) == typeof(NdefSpRecord))
-                {
-                    var spRecord = new NdefSpRecord(record);
-                    cp.CardReadHandler(spRecord.Uri, spRecord.Titles[0].Text);
-
-                }
+                return;
             }
+
+            Console.WriteLine("Card ATR: {0}", BitConverter.ToString(atr));
         }
     }
 }
