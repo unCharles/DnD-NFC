@@ -1,4 +1,5 @@
 ﻿using LiteDB;
+using System;
 using System.Collections;
 
 namespace DnD_NFC.Models
@@ -68,7 +69,16 @@ namespace DnD_NFC.Models
 
         override public string ToString()
         {
-            return $"{Hex} ({Type}) - {Source}";
+            string label;
+            if (Type == "Character")
+            {
+                label = Character.Find(Int32.Parse(Source)).ToString();
+            }
+            else
+            {
+                label = Source;
+            }
+            return $"{Hex} {label}";
         }
     }
 }

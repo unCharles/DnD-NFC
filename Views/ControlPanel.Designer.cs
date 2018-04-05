@@ -25,6 +25,7 @@ namespace DnD_NFC
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.notificationLabel = new System.Windows.Forms.Label();
             this.nfcStatusLabel = new System.Windows.Forms.Label();
             this.defaultImage = new System.Windows.Forms.PictureBox();
             this.setDefaultImageButton = new System.Windows.Forms.Button();
@@ -41,15 +42,16 @@ namespace DnD_NFC
             this.editCharacterButton = new System.Windows.Forms.Button();
             this.newCharacterButton = new System.Windows.Forms.Button();
             this.mapsTab = new System.Windows.Forms.TabPage();
+            this.registerMapCardLabel = new System.Windows.Forms.Label();
+            this.registerMapCardButton = new System.Windows.Forms.Button();
             this.mapImageList = new System.Windows.Forms.ListBox();
             this.mapThumbnailImage = new System.Windows.Forms.PictureBox();
             this.refreshMapImages = new System.Windows.Forms.Button();
             this.mapReset = new System.Windows.Forms.Button();
             this.displayMap = new System.Windows.Forms.Button();
             this.chooseMapFolder = new System.Windows.Forms.Button();
-            this.registerMapCardButton = new System.Windows.Forms.Button();
-            this.registerMapCardLabel = new System.Windows.Forms.Label();
-            this.notificationLabel = new System.Windows.Forms.Label();
+            this.cardTab = new System.Windows.Forms.TabPage();
+            this.cardListBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,6 +61,7 @@ namespace DnD_NFC
             this.characterTab.SuspendLayout();
             this.mapsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapThumbnailImage)).BeginInit();
+            this.cardTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -84,6 +87,15 @@ namespace DnD_NFC
             this.splitContainer1.Size = new System.Drawing.Size(1064, 697);
             this.splitContainer1.SplitterDistance = 224;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // notificationLabel
+            // 
+            this.notificationLabel.AutoSize = true;
+            this.notificationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notificationLabel.Location = new System.Drawing.Point(12, 672);
+            this.notificationLabel.Name = "notificationLabel";
+            this.notificationLabel.Size = new System.Drawing.Size(0, 16);
+            this.notificationLabel.TabIndex = 7;
             // 
             // nfcStatusLabel
             // 
@@ -156,6 +168,7 @@ namespace DnD_NFC
             // 
             this.tabControl.Controls.Add(this.characterTab);
             this.tabControl.Controls.Add(this.mapsTab);
+            this.tabControl.Controls.Add(this.cardTab);
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(3, 3);
             this.tabControl.Name = "tabControl";
@@ -268,6 +281,26 @@ namespace DnD_NFC
             this.mapsTab.Text = "Maps";
             this.mapsTab.UseVisualStyleBackColor = true;
             // 
+            // registerMapCardLabel
+            // 
+            this.registerMapCardLabel.AutoSize = true;
+            this.registerMapCardLabel.Location = new System.Drawing.Point(615, 93);
+            this.registerMapCardLabel.Name = "registerMapCardLabel";
+            this.registerMapCardLabel.Size = new System.Drawing.Size(0, 20);
+            this.registerMapCardLabel.TabIndex = 13;
+            // 
+            // registerMapCardButton
+            // 
+            this.registerMapCardButton.BackColor = System.Drawing.Color.Blue;
+            this.registerMapCardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerMapCardButton.ForeColor = System.Drawing.Color.Snow;
+            this.registerMapCardButton.Location = new System.Drawing.Point(615, 112);
+            this.registerMapCardButton.Name = "registerMapCardButton";
+            this.registerMapCardButton.Size = new System.Drawing.Size(131, 47);
+            this.registerMapCardButton.TabIndex = 12;
+            this.registerMapCardButton.Text = "Register NFC";
+            this.registerMapCardButton.UseVisualStyleBackColor = false;
+            // 
             // mapImageList
             // 
             this.mapImageList.AccessibleDescription = "";
@@ -338,34 +371,25 @@ namespace DnD_NFC
             this.chooseMapFolder.Text = "Choose Folder";
             this.chooseMapFolder.UseVisualStyleBackColor = false;
             // 
-            // registerMapCardButton
+            // cardTab
             // 
-            this.registerMapCardButton.BackColor = System.Drawing.Color.Blue;
-            this.registerMapCardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerMapCardButton.ForeColor = System.Drawing.Color.Snow;
-            this.registerMapCardButton.Location = new System.Drawing.Point(615, 112);
-            this.registerMapCardButton.Name = "registerMapCardButton";
-            this.registerMapCardButton.Size = new System.Drawing.Size(131, 47);
-            this.registerMapCardButton.TabIndex = 12;
-            this.registerMapCardButton.Text = "Register NFC";
-            this.registerMapCardButton.UseVisualStyleBackColor = false;
+            this.cardTab.Controls.Add(this.cardListBox);
+            this.cardTab.Location = new System.Drawing.Point(4, 29);
+            this.cardTab.Name = "cardTab";
+            this.cardTab.Padding = new System.Windows.Forms.Padding(3);
+            this.cardTab.Size = new System.Drawing.Size(825, 661);
+            this.cardTab.TabIndex = 2;
+            this.cardTab.Text = "Cards";
+            this.cardTab.UseVisualStyleBackColor = true;
             // 
-            // registerMapCardLabel
+            // cardListBox
             // 
-            this.registerMapCardLabel.AutoSize = true;
-            this.registerMapCardLabel.Location = new System.Drawing.Point(615, 93);
-            this.registerMapCardLabel.Name = "registerMapCardLabel";
-            this.registerMapCardLabel.Size = new System.Drawing.Size(0, 20);
-            this.registerMapCardLabel.TabIndex = 13;
-            // 
-            // notificationLabel
-            // 
-            this.notificationLabel.AutoSize = true;
-            this.notificationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notificationLabel.Location = new System.Drawing.Point(12, 672);
-            this.notificationLabel.Name = "notificationLabel";
-            this.notificationLabel.Size = new System.Drawing.Size(0, 16);
-            this.notificationLabel.TabIndex = 7;
+            this.cardListBox.FormattingEnabled = true;
+            this.cardListBox.ItemHeight = 20;
+            this.cardListBox.Location = new System.Drawing.Point(3, 3);
+            this.cardListBox.Name = "cardListBox";
+            this.cardListBox.Size = new System.Drawing.Size(816, 644);
+            this.cardListBox.TabIndex = 0;
             // 
             // ControlPanel
             // 
@@ -386,6 +410,7 @@ namespace DnD_NFC
             this.mapsTab.ResumeLayout(false);
             this.mapsTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapThumbnailImage)).EndInit();
+            this.cardTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -418,6 +443,8 @@ namespace DnD_NFC
         private System.Windows.Forms.Label registerMapCardLabel;
         private System.Windows.Forms.Button registerMapCardButton;
         private System.Windows.Forms.Label notificationLabel;
+        private System.Windows.Forms.TabPage cardTab;
+        private System.Windows.Forms.ListBox cardListBox;
     }
 }
 

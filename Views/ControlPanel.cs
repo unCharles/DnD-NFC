@@ -88,6 +88,7 @@ namespace DnD_NFC
         public void InitializeData()
         {
             this.characterListBox.DataSource = Character.All();
+            this.cardListBox.DataSource = Card.All();
             screenCount = Screen.AllScreens.Length;
             monitorSelector.Items.Clear();
             for (int i = 0; i < screenCount; i++)
@@ -148,7 +149,7 @@ namespace DnD_NFC
         {
             displayWindow.PreserveState();
             Console.WriteLine("Loading Element from NFC");
-            Card card = Card.Find(NFCData);
+            Card card = Card.FindOrCreate(NFCData);
             if (card == null)
             {
                 Console.WriteLine("Card not found.");
@@ -163,7 +164,7 @@ namespace DnD_NFC
             }
             else if (card.Type == "Character")
             {
-                Notify("Not Implemented.");
+                Character character = Character.Find(Int32.Parse(card.Source));
             } else
             {
                 Console.WriteLine("Invalid Card Found.");
