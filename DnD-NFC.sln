@@ -1,8 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
-MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnD-NFC", "DnD-NFC.csproj", "{3C23F64B-C0A6-49D1-9333-0768FE3E5699}"
 EndProject
 Global
@@ -15,11 +12,5 @@ Global
 		{3C23F64B-C0A6-49D1-9333-0768FE3E5699}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C23F64B-C0A6-49D1-9333-0768FE3E5699}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C23F64B-C0A6-49D1-9333-0768FE3E5699}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C7460373-6DE7-4CD4-AE92-E095906B05C9}
 	EndGlobalSection
 EndGlobal
