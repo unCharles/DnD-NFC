@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DnD_NFC
@@ -13,6 +7,9 @@ namespace DnD_NFC
     public partial class DisplayWindow : Form
     {
         private Character character;
+
+        private Boolean previousShowImage;
+        private Image previousImage;
 
         public DisplayWindow()
         {
@@ -53,6 +50,18 @@ namespace DnD_NFC
                 pictureBox.Show();
             }
 
+        }
+
+        public void PreserveState()
+        {
+            previousImage = pictureBox.Image;
+            previousShowImage = pictureBox.Enabled;
+        }
+
+        public void RevertState()
+        {
+            pictureBox.Image = previousImage;
+            pictureBox.Enabled = previousShowImage;
         }
     }
 }

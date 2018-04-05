@@ -1,4 +1,5 @@
-﻿using DnD_NFC.Models;
+﻿using DnD_NFC.Lib;
+using DnD_NFC.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,9 @@ namespace DnD_NFC
         private Settings settings;
         private DisplayWindow displayWindow;
         private int screenCount;
+        private CardReader cardReader;
+
+        public string NFCData { get; set; }
 
         public ControlPanel()
         {
@@ -21,11 +25,48 @@ namespace DnD_NFC
             InitializeData();
             InitializeFunctions();
             InitializeDisplayWindow();
+
+            cardReader = new CardReader(this, settings);
+        }
+
+        public void DeviceInitialized(Boolean initialized)
+        {
+            try
+            {
+                if (initialized)
+                {
+                    nfcStatusLabel.Text = "Device Initialized";
+                    nfcStatusLabel.ForeColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    nfcStatusLabel.Text = "Device Not Found";
+                    nfcStatusLabel.ForeColor = System.Drawing.Color.Orange;
+                    nfcToggle.Enabled = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+    
+        public void DeviceErrored()
+        {
+            nfcStatusLabel.Text = "Device Exception Occured";
+            nfcStatusLabel.ForeColor = System.Drawing.Color.Red;
         }
 
         public void InitializeSettings()
         {
             settings = Settings.Get();
+            displayToggle.Checked = settings.EnableDisplay;
+            nfcToggle.Checked = settings.EnableNFC;
+        }
+
+        public void CardReadHandler(string docType, string message)
+        {
+            Console.WriteLine($"{docType} {message}");
         }
 
         public void InitializeDisplayWindow()
@@ -38,11 +79,16 @@ namespace DnD_NFC
                 displayWindow.DisplayImage(settings.DefaultImage);
             }
             RefreshMaps();
+            if (settings.EnableDisplay)
+            {
+                displayWindow.Show();
+            }
         }
 
         public void InitializeData()
         {
             this.characterListBox.DataSource = Character.All();
+            this.cardListBox.DataSource = Card.All();
             screenCount = Screen.AllScreens.Length;
             monitorSelector.Items.Clear();
             for (int i = 0; i < screenCount; i++)
@@ -66,6 +112,7 @@ namespace DnD_NFC
             this.deleteCharacterButton.Click += DeleteCharacter;
             this.displayCharacterButton.Click += DisplayCharacter;
             this.displayToggle.CheckedChanged += ToggleDisplay;
+            this.nfcToggle.CheckedChanged += ToggleNFC;
             this.clearButton.Click += ClearDisplay;
             this.setDefaultImageButton.Click += ChooseDefaultImage;
             this.refreshMapImages.Click += RefreshMaps;
@@ -73,6 +120,56 @@ namespace DnD_NFC
             this.mapImageList.SelectedIndexChanged += SetThumbnailImage;
             this.displayMap.Click += DisplayMap;
             this.mapReset.Click += ClearDisplay;
+            this.registerMapCardButton.Click += RegisterMapCard;
+        }
+
+        public void SetNFCData()
+        {
+            if (NFCData == null)
+            {
+                Console.WriteLine("NFC Data Cleared");
+                displayWindow.RevertState();
+                return;
+            } else
+            {
+                Console.WriteLine($"NFC Data Received {NFCData}");
+                if (settings.EnableNFC)
+                {
+                    Console.WriteLine("NFC Enabled: Displaying Element");
+                    LoadElementFromNFC();
+                }
+                else
+                {
+                    Console.WriteLine("NFC Disabled");
+                }
+            }
+        }
+
+        private void LoadElementFromNFC()
+        {
+            displayWindow.PreserveState();
+            Console.WriteLine("Loading Element from NFC");
+            Card card = Card.FindOrCreate(NFCData);
+            if (card == null)
+            {
+                Console.WriteLine("Card not found.");
+                Notify("Card Data Not Found.");
+                return;
+            }
+
+            if (card.Type == "Map")
+            {
+                Console.WriteLine($"Loading {card.Type} = {card.Source}");
+                displayWindow.DisplayImage(card.Source);
+            }
+            else if (card.Type == "Character")
+            {
+                Character character = Character.Find(Int32.Parse(card.Source));
+            } else
+            {
+                Console.WriteLine("Invalid Card Found.");
+                Notify("Card Data Invalid.");
+            }
         }
 
         private void EditCharacter(object sender, EventArgs e)
@@ -109,6 +206,21 @@ namespace DnD_NFC
             }
         }
 
+        private void RegisterMapCard(object sender, EventArgs e)
+        {
+            if (NFCData == null)
+            {
+                registerMapCardLabel.Text = "No NFC Card Detected";
+                return;
+            }
+            Card card = Card.FindOrCreate(NFCData);
+            DisplayableImage image = (DisplayableImage)mapImageList.SelectedItem;
+            card.Type = "Map";
+            card.Source = image.ImagePath;
+            card.Save();
+            registerMapCardLabel.Text = "Map Card Registered!";
+        }
+
         private void ToggleDisplay(object sender, EventArgs e)
         {
             settings.EnableDisplay = displayToggle.Checked;
@@ -121,6 +233,12 @@ namespace DnD_NFC
             {
                 displayWindow.Hide();
             }
+        }
+
+        private void ToggleNFC(object sender, EventArgs e)
+        {
+            settings.EnableNFC = nfcToggle.Checked;
+            settings.Save();
         }
 
         private void ClearDisplay(object sender, EventArgs e)
@@ -219,6 +337,14 @@ namespace DnD_NFC
                 list.Add(image);
             }
             return list;
+        }
+
+        private void Notify(string text)
+        {
+            notificationLabel.Invoke((Action)delegate
+            {
+                notificationLabel.Text = text;
+            });
         }
     }
 }

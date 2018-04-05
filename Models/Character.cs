@@ -11,7 +11,6 @@ namespace DnD_NFC
 {
     class Character
     {
-
         public int Id { get; set; }
         public string Name { get; set; }
         public string CharacterClass { get; set; }
