@@ -71,6 +71,9 @@
     <Reference Include="PCSC.Iso7816, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\PCSC.Iso7816.4.0.0\lib\net40\PCSC.Iso7816.dll</HintPath>
     </Reference>
+    <Reference Include="SpringCardPCSC">
+      <HintPath>Lib\SpringCardPCSC.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.AppContext.4.3.0\lib\net46\System.AppContext.dll</HintPath>

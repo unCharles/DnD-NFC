@@ -15,6 +15,7 @@ namespace DnD_NFC
         private DisplayWindow displayWindow;
         private int screenCount;
         private CardReader cardReader;
+        private string currentImage;
 
         public string NFCData { get; set; }
 
@@ -75,6 +76,7 @@ namespace DnD_NFC
             displayWindow.SetMonitor(settings.Monitor);
             if (settings.DefaultImage != null)
             {
+                currentImage = settings.DefaultImage;
                 defaultImage.Image = new Bitmap(settings.DefaultImage);
                 displayWindow.DisplayImage(settings.DefaultImage);
             }
@@ -128,31 +130,24 @@ namespace DnD_NFC
             if (NFCData == null)
             {
                 Console.WriteLine("NFC Data Cleared");
-                displayWindow.RevertState();
-                return;
-            } else
+                Console.WriteLine(currentImage);
+                displayWindow.DisplayImage(currentImage);
+            }
+            else
             {
                 Console.WriteLine($"NFC Data Received {NFCData}");
                 if (settings.EnableNFC)
                 {
-                    Console.WriteLine("NFC Enabled: Displaying Element");
                     LoadElementFromNFC();
-                }
-                else
-                {
-                    Console.WriteLine("NFC Disabled");
                 }
             }
         }
 
         private void LoadElementFromNFC()
         {
-            displayWindow.PreserveState();
-            Console.WriteLine("Loading Element from NFC");
             Card card = Card.FindOrCreate(NFCData);
             if (card == null)
             {
-                Console.WriteLine("Card not found.");
                 Notify("Card Data Not Found.");
                 return;
             }
@@ -167,7 +162,6 @@ namespace DnD_NFC
                 Character character = Character.Find(Int32.Parse(card.Source));
             } else
             {
-                Console.WriteLine("Invalid Card Found.");
                 Notify("Card Data Invalid.");
             }
         }
@@ -278,6 +272,7 @@ namespace DnD_NFC
         private void DisplayMap(object sender, EventArgs e)
         {
             DisplayableImage value = (DisplayableImage)mapImageList.SelectedItem;
+            currentImage = value.ImagePath;
             displayWindow.DisplayImage(value.ImagePath);  
         }
 

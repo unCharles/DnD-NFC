@@ -8,9 +8,6 @@ namespace DnD_NFC
     {
         private Character character;
 
-        private Boolean previousShowImage;
-        private Image previousImage;
-
         public DisplayWindow()
         {
             InitializeComponent();
@@ -50,18 +47,6 @@ namespace DnD_NFC
                 pictureBox.Show();
             }
 
-        }
-
-        public void PreserveState()
-        {
-            previousImage = pictureBox.Image;
-            previousShowImage = pictureBox.Enabled;
-        }
-
-        public void RevertState()
-        {
-            pictureBox.Image = previousImage;
-            pictureBox.Enabled = previousShowImage;
         }
     }
 }
