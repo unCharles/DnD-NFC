@@ -1,6 +1,6 @@
 # DnD-NFC
 
-DnD-NFC is a visual management tool for Dungeon Masters for Dungeons & Dragons. Manage character sheets, and graphical visuals.
+DnD-NFC is a visual management tool for Dungeon Masters for Dungeons & Dragons. Manage character sheets, and visuals.
 
 Manage character sheets for all your players.
 Manage your collection of maps and images.
