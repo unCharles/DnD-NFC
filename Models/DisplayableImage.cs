@@ -10,6 +10,7 @@ namespace DnD_NFC.Models
     class DisplayableImage
     {
         public string ImagePath { get; set; }
+        public string Type { get; set; }
 
         public DisplayableImage(string path)
         {

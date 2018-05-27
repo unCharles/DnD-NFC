@@ -16,6 +16,7 @@ namespace DnD_NFC
         private int screenCount;
         private CardReader cardReader;
         private string currentImage;
+        private string selectedFolder;
 
         public string NFCData { get; set; }
 
@@ -63,6 +64,9 @@ namespace DnD_NFC
             settings = Settings.Get();
             displayToggle.Checked = settings.EnableDisplay;
             nfcToggle.Checked = settings.EnableNFC;
+            thumbnailPlayer.Enabled = false;
+            thumbnailPlayer.Visible = false;
+            thumbnailPlayer.settings.volume = 0;
         }
 
         public void CardReadHandler(string docType, string message)
@@ -76,9 +80,16 @@ namespace DnD_NFC
             displayWindow.SetMonitor(settings.Monitor);
             if (settings.DefaultImage != null)
             {
-                currentImage = settings.DefaultImage;
-                defaultImage.Image = new Bitmap(settings.DefaultImage);
-                displayWindow.DisplayImage(settings.DefaultImage);
+                try
+                {
+                    currentImage = settings.DefaultImage;
+                    defaultImage.Image = new Bitmap(settings.DefaultImage);
+                    displayWindow.DisplayImage(settings.DefaultImage);
+                }
+                catch (Exception)
+                {
+                    settings.DefaultImage = null;
+                }
             }
             RefreshMaps();
             if (settings.EnableDisplay)
@@ -105,6 +116,8 @@ namespace DnD_NFC
             }
             monitorSelector.DropDownStyle = ComboBoxStyle.DropDownList;
             monitorSelector.SelectedValueChanged += SelectedMonitorChanged;
+            selectedFolder = settings.MapFolder;
+            GetSubFolders();
         }
 
         public void InitializeFunctions()
@@ -123,6 +136,7 @@ namespace DnD_NFC
             this.displayMap.Click += DisplayMap;
             this.mapReset.Click += ClearDisplay;
             this.registerMapCardButton.Click += RegisterMapCard;
+            this.folderSelector.SelectedIndexChanged += ChangeSubFolder;
         }
 
         public void SetNFCData()
@@ -237,6 +251,7 @@ namespace DnD_NFC
 
         private void ClearDisplay(object sender, EventArgs e)
         {
+            currentImage = settings.DefaultImage;
             displayWindow.DisplayImage(settings.DefaultImage);
         }
 
@@ -265,6 +280,7 @@ namespace DnD_NFC
                     defaultImage.Image = new Bitmap(dlg.FileName);
                     settings.DefaultImage = dlg.FileName;
                     settings.Save();
+                    thumbnailPlayer.Ctlcontrols.stop();
                 }
             }
         }
@@ -276,7 +292,6 @@ namespace DnD_NFC
             displayWindow.DisplayImage(value.ImagePath);  
         }
 
-
         private void SetMapFolderPath(object sender, EventArgs e)
         {
             using (FolderBrowserDialog dlg = new FolderBrowserDialog())
@@ -286,18 +301,54 @@ namespace DnD_NFC
                 {
                     settings.MapFolder = dlg.SelectedPath;
                     settings.Save();
-                    RefreshMaps();
+                    selectedFolder = dlg.SelectedPath;
+                    GetSubFolders();
                 }
             }
         }
 
-        private void RefreshMaps()
+        private void GetSubFolders()
         {
             if (settings.MapFolder != null)
             {
-                var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp" };
-                var files = GetFilesFrom(settings.MapFolder, filters, true);
-                this.mapImageList.DataSource = files;
+                try
+                {
+                    var subFolders = Directory.GetDirectories(settings.MapFolder);
+                    var options = new List<String>();
+                    options.Add(settings.MapFolder);
+                    foreach (var option in subFolders)
+                    {
+                        options.Add(option);
+                    }
+                    folderSelector.DataSource = ImageFileList(options);
+                } catch(Exception)
+                {
+                    settings.MapFolder = null;
+                }
+            }
+        }
+
+        private void ChangeSubFolder(object sender, EventArgs e)
+        {
+            var item = (DisplayableImage)folderSelector.SelectedItem;
+            selectedFolder = item.ImagePath;
+            RefreshMaps();
+        }
+
+        private void RefreshMaps()
+        {
+            if (selectedFolder != null)
+            {
+                try
+                {
+                    var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "m4v" };
+                    var files = GetFilesFrom(selectedFolder, filters, true);
+                    this.mapImageList.DataSource = files;
+                }
+                catch (Exception)
+                {
+                    selectedFolder = null;
+                }
             }
         }
 
@@ -308,8 +359,33 @@ namespace DnD_NFC
 
         private void SetThumbnailImage(object sender, EventArgs e)
         {
-            DisplayableImage value = (DisplayableImage)mapImageList.SelectedItem;
-            mapThumbnailImage.Image = new Bitmap(value.ImagePath);
+            try
+            {
+                DisplayableImage value = (DisplayableImage)mapImageList.SelectedItem;
+                if (IsVideoFile(value.ImagePath))
+                {
+                    thumbnailPlayer.URL = value.ImagePath;
+                    thumbnailPlayer.Enabled = true;
+                    thumbnailPlayer.Visible = true;
+                    thumbnailPlayer.uiMode = "none";
+                    thumbnailPlayer.Ctlcontrols.play();
+                    thumbnailPlayer.Ctlcontrols.pause();
+                } else
+                {
+                    mapThumbnailImage.Image = new Bitmap(value.ImagePath);
+                    thumbnailPlayer.Enabled = false;
+                    thumbnailPlayer.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private Boolean IsVideoFile(string filename)
+        {
+            return filename.Contains("m4v");
         }
 
         private ArrayList GetFilesFrom(String searchFolder, String[] filters, bool isRecursive)

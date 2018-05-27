@@ -56,3 +56,12 @@ C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\PCSC.xml
 C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\PCSC.Iso7816.dll
 C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\PCSC.Iso7816.xml
 C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\SpringCardPCSC.dll
+C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\AForge.dll
+C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\AForge.Video.dll
+C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\AForge.xml
+C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\AForge.Video.xml
+C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\Interop.WMPLib.dll
+C:\Users\chaz\source\repos\DnD-NFC\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\chaz\source\repos\DnD-NFC\obj\Debug\Interop.WMPLib.dll
+C:\Users\chaz\source\repos\DnD-NFC\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\chaz\source\repos\DnD-NFC\obj\Debug\DnD-NFC.csproj.ResolveComReference.cache

@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisplayWindow));
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.videoPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -45,12 +48,24 @@
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
+            // videoPlayer
+            // 
+            this.videoPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPlayer.Enabled = true;
+            this.videoPlayer.Location = new System.Drawing.Point(0, 0);
+            this.videoPlayer.Name = "videoPlayer";
+            this.videoPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("videoPlayer.OcxState")));
+            this.videoPlayer.Size = new System.Drawing.Size(1008, 729);
+            this.videoPlayer.TabIndex = 1;
+            this.videoPlayer.Visible = false;
+            // 
             // DisplayWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.videoPlayer);
             this.Controls.Add(this.pictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DisplayWindow";
@@ -58,6 +73,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Display Window";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -65,5 +81,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox;
+        private AxWMPLib.AxWindowsMediaPlayer videoPlayer;
     }
 }

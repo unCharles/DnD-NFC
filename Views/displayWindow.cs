@@ -13,6 +13,12 @@ namespace DnD_NFC
             InitializeComponent();
         }
 
+        public void InitializeVideoPlayer()
+        {
+            videoPlayer.Enabled = false;
+            videoPlayer.Visible = false;
+        }
+
         public void DisplayCharacter(int id)
         {
             pictureBox.Hide();
@@ -43,10 +49,30 @@ namespace DnD_NFC
             character = null;
             if (image != null)
             {
-                pictureBox.Image = new Bitmap(image);
-                pictureBox.Show();
+                if (IsVideoFile(image))
+                {
+                    videoPlayer.URL = image;
+                    videoPlayer.Enabled = true;
+                    videoPlayer.Visible = true;
+                    videoPlayer.uiMode = "none";
+                    videoPlayer.settings.setMode("loop", true);
+                    videoPlayer.Height = Screen.PrimaryScreen.WorkingArea.Height;
+                    videoPlayer.Width = Screen.PrimaryScreen.WorkingArea.Width;
+                    videoPlayer.Ctlcontrols.play();
+                }
+                else
+                {
+                    pictureBox.Image = new Bitmap(image);
+                    pictureBox.Show();
+                    videoPlayer.Enabled = false;
+                    videoPlayer.Visible = false;
+                }
             }
+        }
 
+        private Boolean IsVideoFile(string filename)
+        {
+            return filename.Contains("m4v");
         }
     }
 }

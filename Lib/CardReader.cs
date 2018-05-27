@@ -30,7 +30,7 @@ namespace DnD_NFC.Lib
         {
             var readers = SCARD.Readers;
 
-            if (readers.Length == 0)
+            if (readers == null || readers.Length == 0)
             {
                 Console.WriteLine("No Reader Found");
                 cp.DeviceErrored();
@@ -43,7 +43,7 @@ namespace DnD_NFC.Lib
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("There was an error while creating the reader's object : " + Ex.Message);
+                Console.WriteLine("There was an error while creating the reader's object : " + Ex.Message);
                 return;
             }
         }
